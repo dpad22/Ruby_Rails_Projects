@@ -5,3 +5,7 @@ Model.All - Shows model table with all created objects
 Model.create(name: "david",description:"something" cohort: Cohort.find(1))- creates a model and references it to the 1st cohort id(cohort.find(1))
 
 Model.where(model_id: 1) - finds all models where model id = 1
+
+User.third.blogs => gets all blogs by third User
+User.third.posts => gets all posts by third User
+User.third.messages => gets all messages by third User

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200604214208) do
+ActiveRecord::Schema.define(version: 20200605165645) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "name"
@@ -27,9 +27,21 @@ ActiveRecord::Schema.define(version: 20200604214208) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "post_id"
+    t.integer  "user_id"
   end
 
   add_index "messages", ["post_id"], name: "index_messages_on_post_id"
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+
+  create_table "owners", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "blog_id"
+  end
+
+  add_index "owners", ["blog_id"], name: "index_owners_on_blog_id"
+  add_index "owners", ["user_id"], name: "index_owners_on_user_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -38,8 +50,18 @@ ActiveRecord::Schema.define(version: 20200604214208) do
     t.datetime "updated_at"
     t.integer  "message_id"
     t.integer  "blog_id"
+    t.integer  "user_id"
   end
 
   add_index "posts", ["blog_id"], name: "index_posts_on_blog_id"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
