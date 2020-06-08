@@ -7,6 +7,7 @@ class DojosController < ApplicationController
   end
 
   def edit
+    @dojo = Dojo.find(params[:id])
   end
 
   def create
@@ -15,12 +16,23 @@ class DojosController < ApplicationController
   end
 
   def show
+    @dojo = Dojo.find(params[:id])
   end
 
   def update
+    dojo = Dojo.find(params[:id])
+    dojo.name = dojoParams[:name]
+    dojo.address = dojoParams[:address]
+    dojo.city = dojoParams[:city]
+    dojo.state = dojoParams[:state]
+    dojo.save
+    redirect_to showDojo_url(id: params[:id])
   end
 
-  def delete
+  def destroy
+    dojo = Dojo.find(params[:id])
+    dojo.destroy
+    redirect_to dojos_url
   end
 
   def dojoParams

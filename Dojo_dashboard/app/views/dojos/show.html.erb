@@ -1,2 +1,8 @@
-<h1>Dojos#show</h1>
-<p>Find me in app/views/dojos/show.html.erb</p>
+<h1><%= @dojo.name %></h1>
+
+<h3> <%= @dojo.address %></h3>
+<h3> <%= @dojo.city %>, <%= @dojo.state %></h3>
+
+<a href="/dojos/<%= @dojo.id %>/edit">Edit</a>
+
+

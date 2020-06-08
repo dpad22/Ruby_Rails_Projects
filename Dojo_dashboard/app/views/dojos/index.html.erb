@@ -1,21 +1,37 @@
 <h1>Welcome to Dojo Dashboard</h1>
+<div class="container">
+    <h2>Listing <%= Dojo.all.length %> Dojo's</h2>
+    <table>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Actions</th>
+        <% @dojos.each do |dojo| %>
 
-<h2>Listing <%= Dojo.all.length %> Dojo's</h2>
-<table>
-    <th>Name</th>
-    <th>Address</th>
-    <th>City</th>
-    <th>State</th>
-    <% @dojos.each do |dojo| %>
+        <tr>
+            <td><%= dojo.name %></td>
+            <td><%= dojo.address %></td>
+            <td><%= dojo.city %></td>
+            <td><%= dojo.state %></td>
+            <td>
+                <a href="/dojos/<%= dojo.id %>/edit">Edit</a>
+                |
+                <a href="/dojos/<%= dojo.id %>">Show</a>
+                |
+                <form action='/dojos/<%= dojo.id %>'method='post'>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" class="delete" value="DESTROY">
+                </form>
+            </td>
+        </tr>
+        <% end %>
 
-    <tr>
-        <td><%= dojo.name %></td>
-        <td><%= dojo.address %></td>
-        <td><%= dojo.city %></td>
-        <td><%= dojo.state %></td>
-    </tr>
-    <% end %>
+    </table>
+</div>
 
-</table>
+<hr>
 
-<a href='/dojos/new'>New Dojo</a>
+<a href='/dojos/new' class ="newButton">New Dojo</a>
+

@@ -1,2 +1,21 @@
 <h1>Dojos#edit</h1>
-<p>Find me in app/views/dojos/edit.html.erb</p>
+
+<form action="/dojos/<%= @dojo.id %>" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+    <label for="dojo[name]">Branch</label>
+    <input type="text" name="dojo[name]" value="<%= @dojo.name %>">
+
+    <label for="dojo[address]">Address</label>
+    <input type="text" name="dojo[address]" value="<%= @dojo.address %>">
+
+    <label for="dojo[city]">City</label>
+    <input type="text" name="dojo[city]" value="<%= @dojo.city %>">
+    
+    <label for="dojo[state]">State</label>
+    <input type="text" name="dojo[state]" value="<%= @dojo.state %>">
+
+    <input type="submit" value="Create">
+    <a href="/dojos/<%= @dojo.id %>">Cancel</a>
+
+</form>
