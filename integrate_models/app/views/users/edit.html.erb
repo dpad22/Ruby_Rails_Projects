@@ -1,0 +1,7 @@
+<h1>Edit User Form</h1>
+<form action="/users" method="post">
+    <label for="name">Name</label>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="text" name="name" value= "<%= @user.name %>">
+    <input type='submit' value='Update'>
+</form>
