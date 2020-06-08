@@ -11,7 +11,7 @@ class DojosController < ApplicationController
 
   def create
     Dojo.create(dojoParams)
-    redirect_to '/dojos'
+    redirect_to dojos_url
   end
 
   def show

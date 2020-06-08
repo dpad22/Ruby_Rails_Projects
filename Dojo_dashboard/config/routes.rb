@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'dojos' => 'dojos#index'
+  get 'dojos' => 'dojos#index', as: 'dojos'
 
   get 'dojos/new'
 
@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'dojos/show'
 
-root 'dojo#index'
+  post 'dojos' => 'dojos#create'
 
+  root 'dojos#index'
 end

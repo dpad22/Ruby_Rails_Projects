@@ -1,2 +1,22 @@
-<h1>Dojos#new</h1>
-<p>Find me in app/views/dojos/new.html.erb</p>
+<h1>New Dojo</h1>
+
+<form action="/dojos" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+    <label for="dojo[name]">Branch</label>
+    <input type="text" name="dojo[name]">
+
+    <label for="dojo[address]">Address</label>
+    <input type="text" name="dojo[address]">
+
+    <label for="dojo[city]">City</label>
+    <input type="text" name="dojo[city]">
+    
+    <label for="dojo[state]">State</label>
+    <input type="text" name="dojo[state]">
+
+    <input type="submit" value="Create">
+
+</form>
+
+<a href='/dojos'>Go back</a>

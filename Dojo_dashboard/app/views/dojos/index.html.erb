@@ -1,6 +1,6 @@
 <h1>Welcome to Dojo Dashboard</h1>
 
-<h2>Listing <%= Dojo.ids.last %> Dojo's</h2>
+<h2>Listing <%= Dojo.all.length %> Dojo's</h2>
 <table>
     <th>Name</th>
     <th>Address</th>
@@ -17,3 +17,5 @@
     <% end %>
 
 </table>
+
+<a href='/dojos/new'>New Dojo</a>
