@@ -1,0 +1,19 @@
+<h1>Welcome to Dojo Dashboard</h1>
+
+<h2>Listing <%= Dojo.ids.last %> Dojo's</h2>
+<table>
+    <th>Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <% @dojos.each do |dojo| %>
+
+    <tr>
+        <td><%= dojo.name %></td>
+        <td><%= dojo.address %></td>
+        <td><%= dojo.city %></td>
+        <td><%= dojo.state %></td>
+    </tr>
+    <% end %>
+
+</table>
